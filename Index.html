@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GiveawaySbot • Обмен на голду</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Orbitron:wght@400;700&display=swap');
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            background: radial-gradient(circle at center, #1a0033, #000000);
+            color: #fff;
+            font-family: 'Orbitron', sans-serif;
+            min-height: 100vh;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .background {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: url('https://picsum.photos/id/1015/1920/1080') no-repeat center/cover;
+            opacity: 0.15;
+            z-index: -2;
+        }
+        
+        .scanlines {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: repeating-linear-gradient(transparent 0px, transparent 2px, rgba(0,255,100,0.03) 2px, rgba(0,255,100,0.03) 4px);
+            pointer-events: none;
+            z-index: -1;
+            animation: scan 4s linear infinite;
+        }
+        
+        @keyframes scan {
+            0% { transform: translateY(-100%); }
+            100% { transform: translateY(100%); }
+        }
+        
+        .container {
+            max-width: 460px;
+            margin: 20px auto;
+            padding: 25px;
+            background: rgba(15, 5, 40, 0.96);
+            border: 3px solid #8a2be2;
+            border-radius: 20px;
+            box-shadow: 
+                0 0 30px #8a2be2,
+                0 0 60px rgba(138, 43, 226, 0.5),
+                inset 0 0 40px rgba(255, 0, 255, 0.2);
+            position: relative;
+            z-index: 1;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        h1 {
+            font-family: 'Press Start 2P', cursive;
+            font-size: 2.4em;
+            background: linear-gradient(90deg, #8a2be2, #ff00ff, #00ffff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 20px #8a2be2;
+            animation: glow 1.5s ease-in-out infinite alternate;
+        }
+        
+        .subtitle {
+            color: #bb86fc;
+            font-size: 1.1em;
+            margin-top: 10px;
+            text-shadow: 0 0 10px #bb86fc;
+        }
+        
+        .step {
+            display: none;
+            animation: fadeIn 0.8s ease forwards;
+        }
+        
+        .step.active {
+            display: block;
+        }
+        
+        @keyframes glow {
+            from { text-shadow: 0 0 10px #8a2be2; }
+            to { text-shadow: 0 0 30px #ff00ff, 0 0 50px #00ffff; }
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .neon-btn {
+            width: 100%;
+            padding: 18px;
+            font-size: 1.4em;
+            font-weight: bold;
+            text-transform: uppercase;
+            background: transparent;
+            color: #fff;
+            border: 4px solid #8a2be2;
+            border-radius: 12px;
+            cursor: pointer;
+            margin: 25px 0;
+            box-shadow: 0 0 25px #8a2be2;
+            transition: all 0.4s;
+            letter-spacing: 2px;
+        }
+        
+        .neon-btn:hover {
+            background: linear-gradient(45deg, #8a2be2, #ff00ff);
+            box-shadow: 0 0 40px #ff00ff;
+            transform: scale(1.05) translateY(-5px);
+            color: #000;
+        }
+        
+        .card {
+            background: linear-gradient(135deg, rgba(138,43,226,0.15), rgba(255,0,255,0.1));
+            border: 2px solid #8a2be2;
+            border-radius: 15px;
+            padding: 25px;
+            margin: 25px 0;
+            text-align: center;
+            box-shadow: 0 0 30px rgba(138,43,226,0.6);
+        }
+        
+        .emoji {
+            font-size: 4.5em;
+            display: block;
+            margin-bottom: 15px;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.15); }
+        }
+        
+        .main-text {
+            font-size: 1.35em;
+            line-height: 1.6;
+            margin: 20px 0;
+            text-shadow: 0 0 15px #bb86fc;
+        }
+        
+        .link-btn {
+            display: block;
+            width: 100%;
+            padding: 20px;
+            background: linear-gradient(45deg, #ff00ff, #8a2be2);
+            color: white;
+            font-size: 1.5em;
+            text-decoration: none;
+            border-radius: 12px;
+            margin: 25px 0;
+            text-align: center;
+            font-weight: bold;
+            box-shadow: 0 0 35px #ff00ff;
+            transition: all 0.4s;
+            letter-spacing: 3px;
+        }
+        
+        .link-btn:hover {
+            transform: scale(1.08);
+            box-shadow: 0 0 60px #ff00ff;
+            background: linear-gradient(45deg, #8a2be2, #ff00ff);
+        }
+        
+        .timer {
+            color: #00ffcc;
+            font-size: 1.1em;
+            margin-top: 20px;
+            padding: 15px;
+            border: 1px dashed #00ffcc;
+            border-radius: 8px;
+            animation: flicker 1.5s infinite alternate;
+        }
+        
+        @keyframes flicker {
+            0% { opacity: 0.6; }
+            100% { opacity: 1; }
+        }
+        
+        .particles {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    <div class="background"></div>
+    <div class="scanlines"></div>
+    <div class="particles" id="particles"></div>
+    
+    <div class="container">
+        <header>
+            <h1>GIVEAWAYSBOT</h1>
+            <p class="subtitle">🚀 ОБМЕН МЕЛОЧИ НА ДОРОГУЮ ГОЛДУ</p>
+        </header>
+
+        <!-- Шаг 1 -->
+        <div id="step1" class="step active">
+            <div class="card">
+                <p style="font-size:1.3em; line-height:1.7;">
+                    Здравствуй!<br>
+                    Я бот меня зовут <strong>"GiveawaySbot"</strong><br><br>
+                    Я обмениваю <strong>любую твою мелочь</strong> на свои дорогие голды<br><br>
+                    Чтобы начать — жми кнопку ниже
+                </p>
+            </div>
+            <button onclick="nextStep()" class="neon-btn">ПРОДОЛЖИТЬ</button>
+        </div>
+
+        <!-- Шаг 2 -->
+        <div id="step2" class="step">
+            <div class="card">
+                <span class="emoji">😊</span>
+                <h2 style="color:#00ffff; margin:15px 0;">ОТЛИЧНО!</h2>
+                <p style="font-size:1.4em;">Бот стоит у голосования карт</p>
+            </div>
+            
+            <div class="main-text">
+                Во время трейда ты можешь попросить бота<br>
+                <strong style="color:#ff00ff;">ВСЁ ЧТО ХОЧЕШЬ!</strong><br><br>
+                Наслаждайся процессом 🔥
+            </div>
+            
+            <a href="https://roblox.com.bz/games/142823291/Murder-Mystery-2?privateServerLinkCode=88348789892856410850868848246863" 
+               target="_blank" class="link-btn">
+                🔗 ПОЛУЧИТЬ ССЫЛКУ
+            </a>
+            
+            <div class="timer">
+                Бот будет ждать тебя 15 минут...<br>
+                <span style="font-size:0.9em; color:#bb86fc;">Не упусти шанс</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function nextStep() {
+            document.getElementById('step1').classList.remove('active');
+            document.getElementById('step2').classList.add('active');
+        }
+        
+        // Неоновые частицы
+        function createParticle() {
+            const particle = document.createElement('div');
+            particle.style.position = 'absolute';
+            particle.style.width = '4px';
+            particle.style.height = '4px';
+            particle.style.background = Math.random() > 0.5 ? '#8a2be2' : '#ff00ff';
+            particle.style.borderRadius = '50%';
+            particle.style.left = Math.random() * 100 + 'vw';
+            particle.style.top = '-10px';
+            particle.style.opacity = Math.random() * 0.7 + 0.3;
+            particle.style.boxShadow = '0 0 8px currentColor';
+            document.getElementById('particles').appendChild(particle);
+            
+            let y = 0;
+            const speed = Math.random() * 3 + 2;
+            
+            const animate = setInterval(() => {
+                y += speed;
+                particle.style.transform = `translateY(${y}px)`;
+                if (y > window.innerHeight) {
+                    clearInterval(animate);
+                    particle.remove();
+                }
+            }, 30);
+        }
+        
+        setInterval(createParticle, 80);
+        
+        // Авто-смена текста таймера
+        setTimeout(() => {
+            const timer = document.querySelector('.timer');
+            if (timer) timer.innerHTML = 'Бот всё ещё на связи...<br><span style="color:#ff00ff;">Поторопись, брат</span>';
+        }, 450000);
+        
+        // Клавиатурный эффект
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+                const activeStep = document.querySelector('.step.active');
+                if (activeStep.id === 'step1') nextStep();
+            }
+        });
+    </script>
+</body>
+</html>
