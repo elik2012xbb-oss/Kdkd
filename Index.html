@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GiveawaySbot • Обмен на голду</title>
+    <title>GiveawaySbot • MM2 Godlies</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Orbitron:wght@400;700&display=swap');
         
@@ -22,7 +22,7 @@
             position: absolute;
             top: 0; left: 0; right: 0; bottom: 0;
             background: url('https://picsum.photos/id/1015/1920/1080') no-repeat center/cover;
-            opacity: 0.15;
+            opacity: 0.12;
             z-index: -2;
         }
         
@@ -35,10 +35,7 @@
             animation: scan 4s linear infinite;
         }
         
-        @keyframes scan {
-            0% { transform: translateY(-100%); }
-            100% { transform: translateY(100%); }
-        }
+        @keyframes scan { 0% { transform: translateY(-100%); } 100% { transform: translateY(100%); } }
         
         .container {
             max-width: 460px;
@@ -47,22 +44,16 @@
             background: rgba(15, 5, 40, 0.96);
             border: 3px solid #8a2be2;
             border-radius: 20px;
-            box-shadow: 
-                0 0 30px #8a2be2,
-                0 0 60px rgba(138, 43, 226, 0.5),
-                inset 0 0 40px rgba(255, 0, 255, 0.2);
+            box-shadow: 0 0 30px #8a2be2, 0 0 60px rgba(138,43,226,0.5), inset 0 0 40px rgba(255,0,255,0.2);
             position: relative;
             z-index: 1;
         }
         
-        header {
-            text-align: center;
-            margin-bottom: 30px;
-        }
+        header { text-align: center; margin-bottom: 30px; }
         
         h1 {
             font-family: 'Press Start 2P', cursive;
-            font-size: 2.4em;
+            font-size: 2.35em;
             background: linear-gradient(90deg, #8a2be2, #ff00ff, #00ffff);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -70,36 +61,18 @@
             animation: glow 1.5s ease-in-out infinite alternate;
         }
         
-        .subtitle {
-            color: #bb86fc;
-            font-size: 1.1em;
-            margin-top: 10px;
-            text-shadow: 0 0 10px #bb86fc;
-        }
+        .subtitle { color: #bb86fc; font-size: 1.15em; margin-top: 10px; text-shadow: 0 0 10px #bb86fc; }
         
-        .step {
-            display: none;
-            animation: fadeIn 0.8s ease forwards;
-        }
+        .step { display: none; animation: fadeIn 0.8s ease forwards; }
+        .step.active { display: block; }
         
-        .step.active {
-            display: block;
-        }
-        
-        @keyframes glow {
-            from { text-shadow: 0 0 10px #8a2be2; }
-            to { text-shadow: 0 0 30px #ff00ff, 0 0 50px #00ffff; }
-        }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+        @keyframes glow { from { text-shadow: 0 0 10px #8a2be2; } to { text-shadow: 0 0 30px #ff00ff, 0 0 50px #00ffff; } }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
         
         .neon-btn {
             width: 100%;
-            padding: 18px;
-            font-size: 1.4em;
+            padding: 20px;
+            font-size: 1.45em;
             font-weight: bold;
             text-transform: uppercase;
             background: transparent;
@@ -110,41 +83,38 @@
             margin: 25px 0;
             box-shadow: 0 0 25px #8a2be2;
             transition: all 0.4s;
-            letter-spacing: 2px;
+            letter-spacing: 3px;
         }
         
-        .neon-btn:hover {
+        .neon-btn:hover, .neon-btn:active {
             background: linear-gradient(45deg, #8a2be2, #ff00ff);
-            box-shadow: 0 0 40px #ff00ff;
-            transform: scale(1.05) translateY(-5px);
+            box-shadow: 0 0 45px #ff00ff;
+            transform: scale(1.06) translateY(-5px);
             color: #000;
         }
         
         .card {
-            background: linear-gradient(135deg, rgba(138,43,226,0.15), rgba(255,0,255,0.1));
+            background: linear-gradient(135deg, rgba(138,43,226,0.18), rgba(255,0,255,0.12));
             border: 2px solid #8a2be2;
             border-radius: 15px;
             padding: 25px;
             margin: 25px 0;
             text-align: center;
-            box-shadow: 0 0 30px rgba(138,43,226,0.6);
+            box-shadow: 0 0 30px rgba(138,43,226,0.7);
         }
         
         .emoji {
-            font-size: 4.5em;
+            font-size: 4.8em;
             display: block;
             margin-bottom: 15px;
             animation: pulse 2s infinite;
         }
         
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.15); }
-        }
+        @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.18); } }
         
         .main-text {
-            font-size: 1.35em;
-            line-height: 1.6;
+            font-size: 1.38em;
+            line-height: 1.65;
             margin: 20px 0;
             text-shadow: 0 0 15px #bb86fc;
         }
@@ -152,48 +122,36 @@
         .link-btn {
             display: block;
             width: 100%;
-            padding: 20px;
+            padding: 22px;
             background: linear-gradient(45deg, #ff00ff, #8a2be2);
             color: white;
-            font-size: 1.5em;
+            font-size: 1.55em;
             text-decoration: none;
             border-radius: 12px;
             margin: 25px 0;
             text-align: center;
             font-weight: bold;
-            box-shadow: 0 0 35px #ff00ff;
+            box-shadow: 0 0 40px #ff00ff;
             transition: all 0.4s;
             letter-spacing: 3px;
         }
         
         .link-btn:hover {
-            transform: scale(1.08);
-            box-shadow: 0 0 60px #ff00ff;
-            background: linear-gradient(45deg, #8a2be2, #ff00ff);
+            transform: scale(1.1);
+            box-shadow: 0 0 65px #ff00ff;
         }
         
         .timer {
             color: #00ffcc;
-            font-size: 1.1em;
-            margin-top: 20px;
+            font-size: 1.15em;
+            margin-top: 25px;
             padding: 15px;
             border: 1px dashed #00ffcc;
             border-radius: 8px;
             animation: flicker 1.5s infinite alternate;
         }
         
-        @keyframes flicker {
-            0% { opacity: 0.6; }
-            100% { opacity: 1; }
-        }
-        
-        .particles {
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            pointer-events: none;
-            z-index: -1;
-            overflow: hidden;
-        }
+        @keyframes flicker { 0% { opacity: 0.7; } 100% { opacity: 1; } }
     </style>
 </head>
 <body>
@@ -204,16 +162,17 @@
     <div class="container">
         <header>
             <h1>GIVEAWAYSBOT</h1>
-            <p class="subtitle">🚀 ОБМЕН МЕЛОЧИ НА ДОРОГУЮ ГОЛДУ</p>
+            <p class="subtitle">🔪 MM2 GODLIES GIVEAWAY</p>
         </header>
 
         <!-- Шаг 1 -->
         <div id="step1" class="step active">
             <div class="card">
-                <p style="font-size:1.3em; line-height:1.7;">
-                    Здравствуй!<br>
+                <p style="font-size:1.32em; line-height:1.75;">
+                    Здравствуй!<br><br>
                     Я бот меня зовут <strong>"GiveawaySbot"</strong><br><br>
-                    Я обмениваю <strong>любую твою мелочь</strong> на свои дорогие голды<br><br>
+                    Я обмениваю любую твою мелочь<br>
+                    на свои <strong>дорогие GODLIES</strong> в MM2<br><br>
                     Чтобы начать — жми кнопку ниже
                 </p>
             </div>
@@ -224,7 +183,7 @@
         <div id="step2" class="step">
             <div class="card">
                 <span class="emoji">😊</span>
-                <h2 style="color:#00ffff; margin:15px 0;">ОТЛИЧНО!</h2>
+                <h2 style="color:#00ffff; margin:15px 0; font-size:1.6em;">ОТЛИЧНО!</h2>
                 <p style="font-size:1.4em;">Бот стоит у голосования карт</p>
             </div>
             
@@ -241,59 +200,53 @@
             
             <div class="timer">
                 Бот будет ждать тебя 15 минут...<br>
-                <span style="font-size:0.9em; color:#bb86fc;">Не упусти шанс</span>
+                <span style="font-size:0.95em; color:#bb86fc;">Не упусти шанс получить Godlies</span>
             </div>
         </div>
     </div>
 
     <script>
         function nextStep() {
-            document.getElementById('step1').classList.remove('active');
-            document.getElementById('step2').classList.add('active');
+            const step1 = document.getElementById('step1');
+            const step2 = document.getElementById('step2');
+            if (step1) step1.classList.remove('active');
+            if (step2) step2.classList.add('active');
         }
         
         // Неоновые частицы
         function createParticle() {
-            const particle = document.createElement('div');
-            particle.style.position = 'absolute';
-            particle.style.width = '4px';
-            particle.style.height = '4px';
-            particle.style.background = Math.random() > 0.5 ? '#8a2be2' : '#ff00ff';
-            particle.style.borderRadius = '50%';
-            particle.style.left = Math.random() * 100 + 'vw';
-            particle.style.top = '-10px';
-            particle.style.opacity = Math.random() * 0.7 + 0.3;
-            particle.style.boxShadow = '0 0 8px currentColor';
-            document.getElementById('particles').appendChild(particle);
+            const p = document.createElement('div');
+            p.style.position = 'absolute';
+            p.style.width = Math.random() * 6 + 3 + 'px';
+            p.style.height = p.style.width;
+            p.style.background = Math.random() > 0.5 ? '#8a2be2' : '#ff00ff';
+            p.style.left = Math.random() * 100 + 'vw';
+            p.style.top = '-20px';
+            p.style.borderRadius = '50%';
+            p.style.opacity = Math.random() * 0.6 + 0.4;
+            p.style.boxShadow = '0 0 12px currentColor';
+            document.getElementById('particles').appendChild(p);
             
             let y = 0;
-            const speed = Math.random() * 3 + 2;
-            
+            const speed = Math.random() * 4 + 2.5;
             const animate = setInterval(() => {
                 y += speed;
-                particle.style.transform = `translateY(${y}px)`;
-                if (y > window.innerHeight) {
+                p.style.transform = `translateY(${y}px)`;
+                if (y > window.innerHeight + 50) {
                     clearInterval(animate);
-                    particle.remove();
+                    p.remove();
                 }
-            }, 30);
+            }, 25);
         }
         
-        setInterval(createParticle, 80);
+        setInterval(createParticle, 70);
         
-        // Авто-смена текста таймера
+        // Таймер
         setTimeout(() => {
             const timer = document.querySelector('.timer');
-            if (timer) timer.innerHTML = 'Бот всё ещё на связи...<br><span style="color:#ff00ff;">Поторопись, брат</span>';
-        }, 450000);
-        
-        // Клавиатурный эффект
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Enter') {
-                const activeStep = document.querySelector('.step.active');
-                if (activeStep.id === 'step1') nextStep();
-            }
-        });
+            if (timer) timer.innerHTML = 'Бот всё ещё на связи...<br><span style="color:#ff00ff;">Поторопись с Godlies</span>';
+        }, 480000);
     </script>
 </body>
 </html>
+
